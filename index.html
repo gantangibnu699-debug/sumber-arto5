@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toko Sumber Arto - Solusi Cetak & Pembayaran Online</title>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #1e3c72;
+      --secondary: #2a5298;
+      --accent: #ff9800;
+      --dark: #1f2937;
+      --light: #f8fafc;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* HEADER / NAVBAR */
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--white);
+      padding: 15px 5%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .badge-mandiri {
+      background-color: #ffb300;
+      color: #002d62;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background: linear-gradient(rgba(30, 60, 114, 0.85), rgba(42, 82, 152, 0.85)), 
+                  url('https://images.unsplash.com/photo-1568667256549-094345857637?auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      color: var(--white);
+      text-align: center;
+      padding: 70px 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 25px auto;
+      opacity: 0.9;
+    }
+
+    .info-bar {
+      display: inline-flex;
+      gap: 20px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      padding: 10px 25px;
+      border-radius: 30px;
+      font-size: 0.95rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* SECTION LAYANAN */
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-title h2 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+      padding-bottom: 8px;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background-color: var(--accent);
+      border-radius: 2px;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-top: 4px solid var(--primary);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      color: var(--primary);
+    }
+
+    .card ul {
+      list-style: none;
+    }
+
+    .card ul li {
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card ul li i {
+      color: #10b981; /* Hijau centang */
+      font-size: 0.85rem;
+    }
+
+    /* SECTION LOKASI */
+    .location-section {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .location-section {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .address-details h3 {
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .address-details p {
+      margin-bottom: 15px;
+      color: #4b5563;
+    }
+
+    .btn-maps {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--accent);
+      color: var(--white);
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .btn-maps:hover {
+      background-color: #e68a00;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: var(--dark);
+      color: var(--white);
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">SUMBER ARTO</div>
+    <div class="badge-mandiri"><i class="fa-solid fa-building-columns"></i> Agen Bank Mandiri</div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h1>SUMBER ARTO</h1>
+    <p>Pusat Layanan Fotocopy, Alat Tulis Sekolah & Kantor, Serta Pembayaran Tagihan Online Terlengkap.</p>
+    
+    <div class="info-bar">
+      <div class="info-item">
+        <i class="fa-regular fa-clock"></i>
+        <span>Buka Setiap Hari: <strong>07.00 - 21.00 WITA</strong></span>
+      </div>
+      <div class="info-item">
+        <i class="fa-solid fa-location-dot"></i>
+        <span>Sekarbela, Kota Mataram</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- UTAMA / LAYANAN -->
+  <div class="container">
+    <div class="section-title">
+      <h2>Layanan Kami</h2>
+    </div>
+
+    <div class="grid-container">
+      
+      <!-- FOTOCOPY & PRINT -->
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-print"></i></div>
+        <h3>Cetak & Jilid</h3>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Fotocopy</li>
+          <li><i class="fa-solid fa-check"></i> Scan Documents</li>
+          <li><i class="fa-solid fa-check"></i> Print / Cetak Foto</li>
+          <li><i class="fa-solid fa-check"></i> Jilid Spiral</li>
+          <li><i class="fa-solid fa-check"></i> Jilid Buku, dll</li>
+        </ul>
+      </div>
+
+      <!-- ALAT TULIS & PULSA -->
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+        <h3>ATK & Komunikasi</h3>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> Alat Tulis Sekolah (ATS)</li>
+          <li><i class="fa-solid fa-check"></i> Alat Tulis Kantor (ATK)</li>
+          <li><i class="fa-solid fa-check"></i> Pulsa Semua Operator</li>
+          <li><i class="fa-solid fa-check"></i> Modem & Kuota Data</li>
+          <li><i class="fa-solid fa-check"></i> WiFi / Hotspot Area</li>
+        </ul>
+      </div>
+
+      <!-- LOKET PEMBAYARAN ONLINE (PPOB) -->
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-receipt"></i></div>
+        <h3>Pembayaran Tagihan</h3>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> PDAM Se-Kabupaten/Kota</li>
+          <li><i class="fa-solid fa-check"></i> Listrik (Token & Non Taglis)</li>
+          <li><i class="fa-solid fa-check"></i> BPJS (Kesehatan / Ketenagakerjaan)</li>
+          <li><i class="fa-solid fa-check"></i> Telkom / IndiHome / Speedy / Halo</li>
+          <li><i class="fa-solid fa-check"></i> TV Prabayar (Indovision, Transvision, dll)</li>
+        </ul>
+      </div>
+
+      <!-- LEASING & FINANCE -->
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-wallet"></i></div>
+        <h3>Angsuran Finance</h3>
+        <ul>
+          <li><i class="fa-solid fa-check"></i> WOM / BAF / OTO</li>
+          <li><i class="fa-solid fa-check"></i> Columbia / Mega Fin / NSC</li>
+          <li><i class="fa-solid fa-check"></i> Smart / Woka / MAF</li>
+          <li><i class="fa-solid fa-check"></i> Al Ijarah / Asuransi CAR</li>
+          <li><i class="fa-solid fa-check"></i> Next Media, dll</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- LOKASI & JAM OPERASIONAL -->
+    <div class="location-section">
+      <div class="address-details">
+        <h3><i class="fa-solid fa-map-location-dot"></i> Alamat Toko</h3>
+        <p>
+          <strong>Toko Sumber Arto</strong><br>
+          Jln. Gajah Mada, Pertokoan, Asia Asri Regency Ruko No.15, <br>
+          Jempong Baru, Kec. Sekarbela, Kota Mataram, <br>
+          Nusa Tenggara Barat 83116
+        </p>
+        <p><strong>Jam Operasional:</strong><br> Buka Setiap Hari (07.00 WITA - 21.00 WITA)</p>
+        
+        <a href="https://maps.google.com/?q=Jln.+Gajah+Mada,+Pertokoan,+Asia+Asri+Regency+Ruko+No.15,+Jempong+Baru,+Kec.+Sekarbela,+Kota+Mataram" target="_blank" class="btn-maps">
+          <i class="fa-solid fa-diamond-turn-right"></i> Buka di Google Maps
+        </a>
+      </div>
+
+      <!-- MAPS EMBED -->
+      <div style="width: 100%; height: 220px; border-radius: 10px; overflow: hidden;">
+        <iframe 
+          width="100%" 
+          height="100%" 
+          frameborder="0" 
+          scrolling="no" 
+          marginheight="0" 
+          marginwidth="0" 
+          src="https://maps.google.com/maps?q=Jln.%20Gajah%20Mada,%20Asia%20Asri%20Regency%20Ruko%20No.15,%20Jempong%20Baru,%20Sekarbela,%20Mataram&t=&z=15&ie=UTF8&iwloc=&output=embed">
+        </iframe>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Toko Sumber Arto Mataram. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
